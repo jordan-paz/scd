@@ -2,37 +2,47 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 import styled from "styled-components"
-import icon from "../images/gatsby-icon.png"
-import { FaBars } from "react-icons/fa"
+import DrawerMenu from "./drawerMenu"
 
-const StyledHeader = styled.header`
-  display: grid;
-  grid: 90px / 1fr 3fr 1fr;
-  background-color: #fff;
+const HeaderWrapper = styled.header`
+  background: white;
+  color: #333;
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 60px;
+  top:0;
+  }
 `
 
-const StyledImg = styled.img`
-  max-height: 70%;
-`
-
-const StyledDiv = styled.div`
+const HeaderContent = styled.div`
+  max-width: 930px;
+  margin: 0 auto;
   display: flex;
-  justify-content: center;
+  height: 100%;
+  justify-content: space-between;
   align-items: center;
 `
 
-const Header = ({ siteTitle }) => (
-  <StyledHeader>
-    <StyledDiv>
-      <StyledImg src={icon} />
-    </StyledDiv>
-    <StyledDiv>{""}</StyledDiv>
-    <StyledDiv>
-      <button style={{ height: "50%", width: "50%", padding: "0" }}>
-        <FaBars style={{ height: "100%", width: "100%", padding: "0" }} />
-      </button>
-    </StyledDiv>
-  </StyledHeader>
+const HeaderLogo = styled.div`
+  max-height: 100%;
+`
+
+const ShoppingCart = styled.div`
+  margin-right: 1rem;
+  max-height: 100%;
+`
+
+const Header = () => (
+  <HeaderWrapper>
+    <HeaderContent>
+      <DrawerMenu />
+      <HeaderLogo>
+        <Link to="/">SCD</Link>
+      </HeaderLogo>
+      <ShoppingCart>Cart</ShoppingCart>
+    </HeaderContent>
+  </HeaderWrapper>
 )
 
 Header.propTypes = {
