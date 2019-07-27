@@ -13,6 +13,12 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: "gatsby-plugin-google-fonts",
+      options: {
+        fonts: ["material icons", "roboto:300,400,500,700"],
+      },
+    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
     {
