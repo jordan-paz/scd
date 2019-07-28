@@ -5,6 +5,7 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: inherit;
   }
   html {
+    font-family: Roboto;
     text-rendering: optimizeLegibility;
     overflow-x: hidden;
     box-sizing: border-box;

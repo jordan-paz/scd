@@ -6,6 +6,7 @@ import ListItem from "@material-ui/core/ListItem"
 import ListItemText from "@material-ui/core/ListItemText"
 import { FaBars } from "react-icons/fa"
 import styled from "styled-components"
+import { Link } from "gatsby"
 
 const BarsWrapper = styled.div`
   margin-left: 1rem;
@@ -46,18 +47,16 @@ export default function TemporaryDrawer() {
       onKeyDown={toggleDrawer(false)}
     >
       <List>
-        {["Flower", "Concentrates", "Edibles", "Prerolls"].map(text => (
-          <ListItem button key={text}>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <List>
-        {["All mail", "Trash", "Spam"].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemText primary={text} />
-          </ListItem>
+        <ListItem button>
+          <ListItemText primary="Shop" />
+        </ListItem>
+        <Divider />
+        {["Flower", "Vaporizers", "Edibles", "Prerolls", "Gear"].map(text => (
+          <Link to={`/${text.toLowerCase()}`}>
+            <ListItem button key={text}>
+              <ListItemText primary={text} />
+            </ListItem>
+          </Link>
         ))}
       </List>
     </div>

@@ -1,42 +1,29 @@
 import React, { useEffect, useState } from "react"
 import styled from "styled-components"
-import weed from "../images/weed-background.jpg"
+import ProductCard from "./productCard"
 import axios from "axios"
 
+const FeaturedProductSection = styled.section`
+  margin-top: 80px;
+`
+
+const FeaturedProductHeader = styled.header`
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  height: 80px;
+  width: 100%;
+`
+
 const ScrollingWrapper = styled.div`
-  padding-top: 80px;
   overflow-x: scroll;
   overflow-y: hidden;
   white-space: nowrap;
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: repeat(5, calc(45%));
+  grid-template-rows: minmax(150px, 2fr);
 `
-
-const ProductCardContent = styled.div`
-  margin: 10px;
-  display: inline-grid;
-  grid-template-rows: 200px 100px;
-`
-
-const ProductCardImg = styled.img`
-  max-height: 200px;
-`
-
-const ProductCardTextWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-around;
-  padding: 20px 0;
-`
-
-const ProductCard = () => (
-  <ProductCardContent>
-    <ProductCardImg src={weed} />
-    <ProductCardTextWrapper>
-      <h3>Weed</h3>
-      <p>$25.00</p>
-    </ProductCardTextWrapper>
-  </ProductCardContent>
-)
 
 const FeaturedProducts = () => {
   // const [products, setProducts] = useState([])
@@ -60,14 +47,18 @@ const FeaturedProducts = () => {
   // }, [])
 
   return (
-    <ScrollingWrapper>
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-    </ScrollingWrapper>
+    <FeaturedProductSection>
+      <FeaturedProductHeader>
+        <h2>Featured Products</h2>
+      </FeaturedProductHeader>
+      <ScrollingWrapper>
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+      </ScrollingWrapper>
+    </FeaturedProductSection>
   )
 }
 

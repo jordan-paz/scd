@@ -18,6 +18,7 @@ const HeroWrapper = styled.div`
 
 const StyledAnnouncement = styled.h1`
   grid-area: announcement;
+  padding-top: 80px;
   color: #000;
 `
 
